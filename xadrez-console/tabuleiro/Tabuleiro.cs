@@ -17,6 +17,7 @@
             return Peca(pos.Linha, pos.Coluna);
         }
 
+
         public Tabuleiro(int linhas, int colunas)
         {
             Linhas = linhas;
@@ -33,6 +34,18 @@
             Pecas[pos.Linha, pos.Coluna] = p;
             p.Posicao = pos;
         }
+
+        public Peca RetirarPeca(Posicao pos)
+        {
+            if (Peca(pos) == null)
+            {
+                return null;
+            }
+            Peca aux = Peca(pos);
+            aux.Posicao = null;
+            Pecas[pos.Linha, pos.Coluna] = null;
+            return aux;
+        } 
         
         public bool ExistePeca(Posicao pos)
         {
