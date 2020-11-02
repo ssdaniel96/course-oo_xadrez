@@ -1,6 +1,6 @@
 ﻿namespace tabuleiro
 {
-    class Peca
+    abstract class Peca
     {
         public Cor Cor { get; protected set; }
         public Posicao Posicao { get; set; }
@@ -19,5 +19,13 @@
         {
             QteMovimentos++;
         }
+
+        protected bool PodeMover(Posicao pos)
+        {
+            Peca p = Tab.Peca(pos);
+            return p == null || p.Cor != Cor;
+        }
+
+        public abstract bool[,] MovimentosPossiveis();
     }
 }
